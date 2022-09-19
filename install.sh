@@ -37,8 +37,7 @@ check_pid() {
 check_new_ver() {
     aria2_new_ver=$(
         {
-            wget -t2 -T3 -qO- "https://api.github.com/repos/P3TERX/Aria2-Pro-Core/releases/latest" ||
-                wget -t2 -T3 -qO- "https://gh-api.p3terx.com/repos/P3TERX/Aria2-Pro-Core/releases/latest"
+            wget -t2 -T3 -qO- "https://api.github.com/repos/P3TERX/Aria2-Pro-Core/releases/latest"
         } | grep -o '"tag_name": ".*"' | head -n 1 | cut -d'"' -f4
     )
 }
@@ -61,6 +60,7 @@ Download_aria2() {
         echo -e ""
         rm -vf $(which aria2c)
     done
+    https://github.com/P3TERX/Aria2-Pro-Core/releases/download/1.36.0_2021.08.22/aria2-1.36.0-static-linux-amd64.tar.gz
     DOWNLOAD_URL="https://github.com/P3TERX/Aria2-Pro-Core/releases/download/${aria2_new_ver}/aria2-${aria2_new_ver%_*}-static-linux-${ARCH}.tar.gz"
     {
         wget -t2 -T3 -O- "${DOWNLOAD_URL}"
