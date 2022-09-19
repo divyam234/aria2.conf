@@ -63,8 +63,7 @@ Download_aria2() {
     done
     DOWNLOAD_URL="https://github.com/P3TERX/Aria2-Pro-Core/releases/download/${aria2_new_ver}/aria2-${aria2_new_ver%_*}-static-linux-${ARCH}.tar.gz"
     {
-        wget -t2 -T3 -O- "${DOWNLOAD_URL}" ||
-            wget -t2 -T3 -O- "https://gh-acc.p3terx.com/${DOWNLOAD_URL}"
+        wget -t2 -T3 -O- "${DOWNLOAD_URL}"
     } | tar -zx
     [[ ! -s "aria2c" ]] && echo -e "Aria2!" && exit 1
     [[ ${update_dl} = "update" ]] && rm -f "${aria2c}"
